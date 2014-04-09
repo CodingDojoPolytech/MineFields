@@ -91,7 +91,14 @@ public class MineFieldTest {
 		minefield.complete();
 		System.out.println(minefield.toString());
 		assertEquals(result, minefield.toString());
-		
+	}
+	
+	@Test
+	public void constructorTest() {
+		String[][] matrice = {{".","*","."},{".",".","."},{".",".","."}};
+		String result = "1*1\n111\n000";
+		MineField m = new MineField(matrice);
+		assertEquals(result,m.toString());
 	}
 	
 }

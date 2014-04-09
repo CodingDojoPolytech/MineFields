@@ -5,7 +5,16 @@ public class MineField {
 	private Integer	heigth;
 	private Integer	width;
 	private int[][]	matrice;
-
+	
+	public MineField(String[][] strTab ) {
+		if(mapIsGood(strTab)) {
+			this.setSize(strTab.length+" "+strTab[0].length);
+			this.construireGrille(strTab);
+			this.complete();
+			System.out.println(this);
+		}
+	}
+	
 	public int[][] getMatrice() {
 		return matrice;
 	}
