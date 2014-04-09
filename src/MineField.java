@@ -1,7 +1,8 @@
 
 public class MineField {
 
-	private Integer width; 
+	private Integer width;
+	String[][] matrice;
 	public Integer getWidth() {
 		return width;
 	}
@@ -29,8 +30,13 @@ public class MineField {
 		}
 //		this.width =  Integer.parseInt(size.charAt(0)+"");
 //		this.heigth = Integer.parseInt(size.charAt(2)+"");
-		
 	}
+		
+	public void construireGrille(String[][] matrice)
+	{
+		this.matrice = matrice;
+	}
+		
 
 
 }

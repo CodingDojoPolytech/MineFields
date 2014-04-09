@@ -1,10 +1,17 @@
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
 
 
 public class MineFieldTest {
+	private MineField minefield;
 
+	@Before
+	public void initialize()
+	{
+		minefield = new MineField();
+	}
 	
 	@Test
 	public void size(){
@@ -28,5 +35,14 @@ public class MineFieldTest {
 	public void sizeStringPourrie() {
 		MineField m = new MineField();
 		m.setSize(" 99 2");
+	}
+	
+	@Test
+	public void construireGrilleTest()
+	{
+		assertNull(minefield.matrice);
+		String[][] matrice = {{}};
+		minefield.construireGrille(matrice);
+		assertNotNull(minefield.matrice);
 	}
 }
