@@ -21,9 +21,9 @@ where each square is a * for a mine or the number of
 adjacent mine-squares if the square does not contain a mine. 
 
 Example output (for the above input)
-    *211
-    12*1
-    0111
+    " *211
+    " 12*1
+    " 0111
 
 
 Source: https://github.com/JonJagger/cyberdojo/blob/master/exercises/Mine_Field/instructions
