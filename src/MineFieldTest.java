@@ -40,9 +40,58 @@ public class MineFieldTest {
 	@Test
 	public void construireGrilleTest()
 	{
-		assertNull(minefield.matrice);
-		String[][] matrice = {{}};
+		assertNull(minefield.getMatrice());
+		String[][] matrice = {{"."}};
+		minefield.setSize("1 1");
 		minefield.construireGrille(matrice);
-		assertNotNull(minefield.matrice);
+		assertNotNull(minefield.getMatrice());
 	}
+	
+	@Test
+	public void getElementAt() {
+		String[][] matrice = {{"*"}};
+		minefield.setSize("1 1");
+		minefield.construireGrille(matrice);
+		
+		assertEquals(-1, minefield.getElementAt(0,0));
+	}
+	
+	@Test
+	public void mapIsGood(){
+		String[][] matrice = {{"b"}};
+		assertEquals(false, minefield.mapIsGood(matrice));
+	}
+	@Test
+	public void construireGrilleMines(){
+		String[][] matrice = {{"*"}};
+		minefield.setSize("1 1");
+		minefield.construireGrille(matrice);
+		assertEquals(-1,minefield.getElementAt(0,0));
+	}
+	
+	@Test
+	public void actualiserVoisins(){
+		int[][] tabTest={{0,-1,0},{0,0,0},{0,0,0}};
+		int[][] tabExpect={{1,-1,1},{1,1,1},{0,0,0}};
+		minefield.setMatrice(tabTest);
+		minefield.setSize("3 3");
+		minefield.actualiserVoisins(0,1);
+		assertEquals(1,minefield.getElementAt(0, 0));
+		
+	}
+	
+	@Test
+	public void testToString() {
+		String[][] matrice = {{".","*","."},{".",".","."},{".",".","."}};
+		String result = "1*1\n111\n000";
+		minefield.setSize("3 3");
+		
+		minefield.construireGrille(matrice);
+		
+		minefield.complete();
+		System.out.println(minefield.toString());
+		assertEquals(result, minefield.toString());
+		
+	}
+	
 }
