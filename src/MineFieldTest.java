@@ -15,4 +15,18 @@ public class MineFieldTest {
 		assertEquals(new Integer(4), mine.getWidth());
 		
 	}
+	
+	@Test
+	public void sizeUpToNine() {
+		MineField m = new MineField();
+		m.setSize("99 2");
+		assertEquals(new Integer(2), m.getHeigth());
+		assertEquals(new Integer(99), m.getWidth());
+	}
+
+	@Test(expected=RuntimeException.class)
+	public void sizeStringPourrie() {
+		MineField m = new MineField();
+		m.setSize(" 99 2");
+	}
 }
